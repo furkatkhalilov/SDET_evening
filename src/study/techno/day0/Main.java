@@ -1,4 +1,4 @@
-package study.techno;
+package study.techno.day0;
 
 public class Main {
 
