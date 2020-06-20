@@ -25,7 +25,7 @@ public class _06_CssExample {
 
        WebElement noThanksButton = driver.findElement(By.linkText("No, thanks!"));
        noThanksButton.click();
- 
+
         WebElement ShowMessageButton = driver.findElement(By.cssSelector("button[onclick='showInput();']"));
 //        WebElement ShowMessageButton = driver.findElement(By.className("btn btn-default"));
         ShowMessageButton.click();
