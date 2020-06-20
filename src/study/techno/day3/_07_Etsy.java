@@ -70,5 +70,12 @@ public class _07_Etsy {
 
          */
 
+        /*
+                Xpath css locator
+                Asserts
+                
+
+         */
+
     }
 }
