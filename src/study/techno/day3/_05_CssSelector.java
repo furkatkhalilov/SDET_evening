@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class _03_ClassName {
+public class _05_CssSelector {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -18,13 +18,10 @@ public class _03_ClassName {
 //        Navigating to the website
         driver.get("http://www.practiceselenium.com/");
 
-        /*
-         If driver.findElement find multiple elements in the page. It will give me first found element.
+//        tagname[attributeName=‘value’]
 
-         */
-        WebElement teaName = driver.findElement(By.className("editor_collections"));
-
-        System.out.println(teaName.getText());
+        WebElement ourPassionButton = driver.findElement(By.cssSelector("a[data-title='Our Passion']"));
+        ourPassionButton.click();
 
     }
 }
