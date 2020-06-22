@@ -73,7 +73,7 @@ public class _07_Etsy {
         /*
                 Xpath css locator
                 Asserts
-                
+                Why quit is important?
 
          */
 
