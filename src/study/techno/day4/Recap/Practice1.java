@@ -34,6 +34,13 @@ public class Practice1 {
 
         System.out.println(message);
 
+        /*
+            Instead of the System out println we used the Assert because
+
+            If the message is not equal to "Successfully Logged in..." then I want to throw an error
+
+            This is the way I can understand the code is checking the correct text(URL) or not
+         */
         Assert.assertEquals("Successfully Logged in..." , message  );
 
     /*
