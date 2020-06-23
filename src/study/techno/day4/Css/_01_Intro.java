@@ -52,6 +52,25 @@ public class _01_Intro {
                 h2[id='u_N8w_89601']~input  <-- find all the textarea if  it is sibling of the h2
                     and id should be "u_N8w_89601"
 
+                h2[id='u_N8w_89601']~* <-- find all the siblings
+
+            + icon finding next tag of the givin tag
+                label+label <-- label next of the label
+
+            :not if the tpye is not radio than find it
+            input:not([type='radio'])
+
+            input:not(.required)");  find the inputs which class is not a required
+
+            Find the 10th child in the parent
+            #categories>li:nth-child(10)
+
+            nth-last-child
+            counting from the last element
+            #categories>li:nth-last-child(2) <-- second last in the child list
+
+
+
 
          */
 
