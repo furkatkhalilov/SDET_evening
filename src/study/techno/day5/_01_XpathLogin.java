@@ -61,6 +61,72 @@ public class _01_XpathLogin {
         WebElement buttonContinue = driver.findElement(By.xpath("//div[@class='cart_footer']/a[text()='CHECKOUT']"));
         buttonContinue.click();
 
+        WebElement firstNameInput = driver.findElement(By.xpath("//input[@id='first-name']"));
+        firstNameInput.sendKeys("John");
+
+        WebElement lastNameInput = driver.findElement(By.xpath("//input[@id='last-name']"));
+        lastNameInput.sendKeys("SomeOne");
+
+        WebElement postalCode = driver.findElement(By.xpath("//input[@id='postal-code']"));
+        postalCode.sendKeys("12345");
+
+        WebElement continueButton = driver.findElement(By.xpath("//input[@value='CONTINUE']"));
+        continueButton.click();
+
+//        (//div[@class='inventory_item_price'])[2]
+//        ((//div[@class='cart_list']/div)[3]//div)[5]
+
+//        Find the parent in the xpath //div[text()='Sauce Labs Bike Light']/parent::a
+
+//        Find the sibling in the xpath //a[@id='item_0_title_link']/following-sibling::div
+
+//        //a[@id='item_0_title_link']/following-sibling::div[@class='inventory_item_price']
+
+        WebElement price1 = driver.findElement(By.xpath("//div[text()='Sauce Labs Bike Light']/parent::a/following-sibling::div[@class='inventory_item_price']"));
+        String price1Str = price1.getText();
+
+        WebElement price2 = driver.findElement(By.xpath("//div[text()='Sauce Labs Bolt T-Shirt']/parent::a/following-sibling::div[@class='inventory_item_price']"));
+        String price2Str = price2.getText();
+
+        WebElement ItemTotal = driver.findElement(By.xpath("//div[@class='summary_subtotal_label']"));
+        String ItemTotalStr = ItemTotal.getText();
+
+
+
+        /*
+            Task:
+
+            How to make sure price1Str + price2Str = ItemTotalStr
+
+         */
+
+//        double price1 = Double.parseDouble(str.replace("[^\\d.]",""));
+
+        System.out.println(ItemTotalStr);
+
+        double price1Double = changeStringToDouble(price1Str);
+        double price2Double = changeStringToDouble(price2Str);
+        double TotalDouble = changeStringToDouble(ItemTotalStr);
+
+        Assert.assertTrue(price1Double + price2Double == TotalDouble);
 
     }
+
+    /*
+        I need a method which has taking a string
+        And remove all the non numeric characters and change the String to double
+        And give me double
+     */
+
+    public static double changeStringToDouble(String myString){
+
+        myString = myString.replaceAll("[^\\d.]",""); // remove all the non numeric char (letter or special character)
+
+        double myD = Double.parseDouble(myString);
+
+        return myD;
+
+    }
+
+
 }
