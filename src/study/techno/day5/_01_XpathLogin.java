@@ -58,7 +58,8 @@ public class _01_XpathLogin {
         WebElement cartIcon = driver.findElement(By.xpath("//div[@id='shopping_cart_container']"));
         cartIcon.click();
 
-
+        WebElement buttonContinue = driver.findElement(By.xpath("//div[@class='cart_footer']/a[text()='CHECKOUT']"));
+        buttonContinue.click();
 
 
     }
