@@ -91,8 +91,6 @@ public class _01_XpathLogin {
         WebElement ItemTotal = driver.findElement(By.xpath("//div[@class='summary_subtotal_label']"));
         String ItemTotalStr = ItemTotal.getText();
 
-
-
         /*
             Task:
 
