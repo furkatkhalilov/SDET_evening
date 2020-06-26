@@ -41,6 +41,8 @@ public class _01SignInFunctionality_ {
             usernameInput.clear();
             usernameInput.sendKeys(user);
 
+//            click on next button
+
             WebElement passwordInput = driver.findElement(By.id("password"));
             passwordInput.clear();
             passwordInput.sendKeys(password);
@@ -68,5 +70,14 @@ public class _01SignInFunctionality_ {
         }
 
     }
+
+    /*
+        Create a method which is taking two String(username , password)
+        Entering the username and password then clicking on login button
+
+            In the end of the class we will continue
+
+     */
+
 
 }
