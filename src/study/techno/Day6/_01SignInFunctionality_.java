@@ -71,13 +71,7 @@ public class _01SignInFunctionality_ {
 
     }
 
-    /*
-        Create a method which is taking two String(username , password)
-        Entering the username and password then clicking on login button
 
-            In the end of the class we will continue
-
-     */
 
 
 }

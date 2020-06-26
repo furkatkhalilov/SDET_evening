@@ -46,18 +46,14 @@ public class _04_ClickOnAllElements {
 
         List<WebElement> addToCartbuttons =driver.findElements(By.xpath("//button[@class='btn_primary btn_inventory']"));
 
-        for(WebElement myElement:addToCartbuttons){
-              myElement.click();
-        }
+        clickingInTheList(addToCartbuttons);
 
           WebElement cartButton = driver.findElement(By.id("shopping_cart_container"));
             cartButton.click();
 
          List<WebElement> removeButtons = driver.findElements(By.xpath("//button[text()='REMOVE']"));
 
-         for(WebElement removeElement:removeButtons){
-             removeElement.click();
-         }
+         clickingInTheList(removeButtons);
 
         removeButtons = driver.findElements(By.xpath("//button[text()='REMOVE']"));
 
@@ -80,4 +76,14 @@ public class _04_ClickOnAllElements {
 
         9.31
      */
+
+
+        public static void clickingInTheList(List<WebElement> anyList){
+            for(WebElement eachElement:anyList){
+                eachElement.click();
+            }
+        }
+
+
+
 }

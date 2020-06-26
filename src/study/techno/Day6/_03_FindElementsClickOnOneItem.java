@@ -4,38 +4,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import study.techno.Utils.BaseDriver;
 
 import java.util.List;
 
-public class _03_FindElementsClickOnOneItem {
+public class _03_FindElementsClickOnOneItem extends BaseDriver {
 
-    static WebDriver driver;
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "D:\\Selenium dependency\\drivers\\chromedriver.exe");
-
-        driver = new ChromeDriver();
-
         driver.get("https://www.saucedemo.com/");
 
-        driver.manage().window().maximize();
-
-        WebElement usernameInput = driver.findElement(By.xpath("//input[@id='user-name']"));
-        usernameInput.sendKeys("standard_user");
-
-        WebElement passwordInput = driver.findElement(By.xpath("//input[@placeholder='Password']"));
-        passwordInput.sendKeys("secret_sauce");
-
-        WebElement loginButton = driver.findElement(By.xpath("//input[@type='submit']"));
-        loginButton.click();
+        _05_SignInFunctionality.signInFuncMethod("standard_user","secret_sauce");
 
         List<WebElement> nameOfTheItems = driver.findElements(By.xpath("//div[@class='inventory_item_name']"));
         clickOneElement(nameOfTheItems , "Sauce Labs Bike Light");
 
         nameOfTheItems = driver.findElements(By.xpath("//div[@class='inventory_item_name']"));
         clickOneElement(nameOfTheItems , "Sauce Labs Bolt T-Shirt");
-
 
         /*
                 To read the WebElements one by one from the list we need a for loop
@@ -73,9 +59,7 @@ public class _03_FindElementsClickOnOneItem {
                 backButton.click();
                 break;
             }
-
         }
-
     }
 
 }
