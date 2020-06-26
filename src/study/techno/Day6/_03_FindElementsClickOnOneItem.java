@@ -9,12 +9,13 @@ import java.util.List;
 
 public class _03_FindElementsClickOnOneItem {
 
-    public static void main(String[] args) throws InterruptedException {
+    static WebDriver driver;
 
+    public static void main(String[] args) throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver", "D:\\Selenium dependency\\drivers\\chromedriver.exe");
 
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
         driver.get("https://www.saucedemo.com/");
 
@@ -30,6 +31,11 @@ public class _03_FindElementsClickOnOneItem {
         loginButton.click();
 
         List<WebElement> nameOfTheItems = driver.findElements(By.xpath("//div[@class='inventory_item_name']"));
+        clickOneElement(nameOfTheItems , "Sauce Labs Bike Light");
+
+        nameOfTheItems = driver.findElements(By.xpath("//div[@class='inventory_item_name']"));
+        clickOneElement(nameOfTheItems , "Sauce Labs Bolt T-Shirt");
+
 
         /*
                 To read the WebElements one by one from the list we need a for loop
@@ -40,24 +46,44 @@ public class _03_FindElementsClickOnOneItem {
 
          */
 
-        for(int i = 0 ; i < nameOfTheItems.size() ; i++){
-            String oneElementName = nameOfTheItems.get(i).getText();
-            if(oneElementName.equalsIgnoreCase("Sauce Labs Bike Light")){
-                nameOfTheItems.get(i).click();
-                break;
+    }
 
+    /*
+        Create a method name is clickOneElement
+        Parameter is a List and One String
+        Return type is void
+
+        If my String from the webElement is equal to paramter String then Click on it
+        Click on add to cart
+        Click on back button.
+     */
+
+    public static void clickOneElement(List<WebElement> itemList , String expectedString){
+
+        for(int i = 0 ; i < itemList.size() ; i++){
+
+            String elementName = itemList.get(i).getText();
+
+                if(elementName.equalsIgnoreCase(expectedString)){
+                    itemList.get(i).click();
+                    WebElement  addToCartButton = driver.findElement(By.xpath("//button[text()='ADD TO CART']"));
+                    addToCartButton.click();
+
+                WebElement backButton = driver.findElement(By.xpath("//button[text()='<- Back']"));
+                backButton.click();
+                break;
             }
+
         }
 
-        /*
+    }
+
+}
+
+ /*
             List<WebElement> list1 = "Element1" , "Element2" , "Element3" , "Element4" , "Element5"
 
             if you see Element2
                 Get text from it and click on it
 
-         */
-
-
-
-    }
-}
+  */
