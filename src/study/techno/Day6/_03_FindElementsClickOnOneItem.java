@@ -61,7 +61,6 @@ public class _03_FindElementsClickOnOneItem extends BaseDriver {
             }
         }
     }
-
 }
 
  /*
