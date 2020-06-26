@@ -1,5 +1,6 @@
 package study.techno.Day6;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +31,6 @@ public class _04_ClickOnAllElements {
         WebElement loginButton = driver.findElement(By.xpath("//input[@type='submit']"));
         loginButton.click();
 
-        List<WebElement> addToCartbuttons =driver.findElements(By.xpath("//button[@class='btn_primary btn_inventory']"));
 
         /*
             Create a code
@@ -40,5 +40,44 @@ public class _04_ClickOnAllElements {
             9.13
          */
 
+//        for(int i = 0 ; i < addToCartbuttons.size() ; i++){
+//            addToCartbuttons.get(i).click();
+//        }
+
+        List<WebElement> addToCartbuttons =driver.findElements(By.xpath("//button[@class='btn_primary btn_inventory']"));
+
+        for(WebElement myElement:addToCartbuttons){
+              myElement.click();
+        }
+
+          WebElement cartButton = driver.findElement(By.id("shopping_cart_container"));
+            cartButton.click();
+
+         List<WebElement> removeButtons = driver.findElements(By.xpath("//button[text()='REMOVE']"));
+
+         for(WebElement removeElement:removeButtons){
+             removeElement.click();
+         }
+
+        removeButtons = driver.findElements(By.xpath("//button[text()='REMOVE']"));
+
+        Assert.assertTrue(removeButtons.size()==0);
+
+//         if(removeButtons.size()==0){
+//             System.out.println("There is no items");
+//         }else{
+//             System.out.println("There are some items");
+//         }
+
     }
+
+    /*
+        Create one method name is clickingInTheList
+        Parameter is one List
+        Return type is void
+
+        Click on each element in the list
+
+        9.31
+     */
 }
