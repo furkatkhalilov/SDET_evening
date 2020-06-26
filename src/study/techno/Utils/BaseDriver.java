@@ -12,5 +12,9 @@ public class BaseDriver {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
-
 }
+
+
+
+
+
