@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import study.techno.Day6._05_SignInFunctionality;
 import study.techno.Utils.BaseDriver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class _01_FindElementsPractice extends BaseDriver {
@@ -29,19 +30,48 @@ public class _01_FindElementsPractice extends BaseDriver {
 //        This list is getting all the item names elements from the website
         List<WebElement> itemName=driver.findElements(By.className("inventory_item_name"));
 
+        List<String> itemNameStringList = WebElementToString(itemName);
+
+//        finding add to cart in the website
         List<WebElement> addToCartItems = driver.findElements(By.xpath("//button[@class='btn_primary btn_inventory']"));
 
+//        Click on all the elements
         clickAllElements(addToCartItems);
 
+//
         WebElement cartItem = driver.findElement(By.xpath("//a[@class='shopping_cart_link fa-layers fa-fw']"));
 
         cartItem.click();
 
+//        Finding item names in the cart
         List<WebElement> itemNameInCart = driver.findElements(By.className("inventory_item_name"));
 
-        compareTwoList(itemName , itemNameInCart );
+//        Change the all itemNameInCart webElements to String list
+        List<String> itemNameInCartStringList =WebElementToString(itemNameInCart);
 
+        compareTwoList(itemNameStringList , itemNameInCartStringList );
+
+        System.out.println("Code is done");
     }
+
+    /*
+        Create one method
+            Parameter is two List of String
+            Return type is void
+
+        Compare both of the String list and if it is not equal fail the code
+
+     */
+        public static void compareTwoList(List<String> l1 , List<String> l2){
+
+            for(int i = 0 ; i<l1.size() ; i++){
+
+                if(!l1.get(i).equals(l2.get(i))){
+                    Assert.fail("First list is not equal to second List ");
+                }
+            }
+
+        }
 
 
     /*
@@ -49,7 +79,23 @@ public class _01_FindElementsPractice extends BaseDriver {
             Return type is List<String>
             Change all WebElements to String and return it.
      */
-        
+     public static List<String> WebElementToString(List<WebElement> myList){
+
+         List<String> stringList = new ArrayList<>();
+
+         for(int i =0  ; i<myList.size() ; i++){
+
+             // both of these approach will work second one is shorter.
+//             String itemName = myList.get(i).getText();
+//             stringList.add(itemName);
+
+             stringList.add(myList.get(i).getText());
+
+         }
+
+         return stringList;
+     }
+
 
 
      /*
