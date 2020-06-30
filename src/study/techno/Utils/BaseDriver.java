@@ -3,6 +3,8 @@ package study.techno.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class BaseDriver {
 
     public static WebDriver driver;
@@ -11,6 +13,7 @@ public class BaseDriver {
         System.setProperty("webdriver.chrome.driver", "D:\\Selenium dependency\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
     }
 }
 

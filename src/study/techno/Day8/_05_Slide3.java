@@ -1,7 +1,9 @@
 package study.techno.Day8;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import study.techno.Utils.BaseDriver;
@@ -20,15 +22,13 @@ public class _05_Slide3 extends BaseDriver {
         void driver.navigate().refresh(); refreshing the page
 
 
-        Timeouts  driver.manage().timeouts();
-        Window driver.manage().window();
+        Timeouts  driver.manage().timeouts();  Implicit wait for example scroll down
+        Window driver.manage().window();    Changing the size of the window
 
 
-        TargetLocator switchTo();
         driver.switchTo().frame(String nameOrId);
         driver.switchTo().alert();
-        Driver.switchTo().window()’
-
+        driver.switchTo().window();
 
          */
 
@@ -54,15 +54,17 @@ public class _05_Slide3 extends BaseDriver {
 
                 For each driver creating one implicit wait will be enough.
 
+                Implicit wait default value is 0
+
          */
 
-        driver.manage().timeouts().implicitlyWait(10 , TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30 , TimeUnit.SECONDS);
 
         WebElement downloadButton = driver.findElement(By.id("downloadButton"));
 
         downloadButton.click();
 
-//        Thread.sleep(30000);  this is waiting for 10 seconds
+//        Thread.sleep(30000);  this is waiting for 30 seconds
 
         WebElement text = driver.findElement(By.xpath("//div[text()='Complete!']"));
 
@@ -72,7 +74,8 @@ public class _05_Slide3 extends BaseDriver {
 
         System.out.println(text2.getText());
 
-
+// Waiting for the page load in selenium
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
     }
 }
