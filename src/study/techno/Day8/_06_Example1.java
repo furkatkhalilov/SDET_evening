@@ -76,8 +76,6 @@ public class _06_Example1 extends BaseDriver {
 //            System.out.println(String.valueOf(rand1).concat( String.valueOf(rand2)));
             System.out.println((rand1)+(rand2));
         }
- 
-
     }
 
     public static int RandomGenerator(int max){
