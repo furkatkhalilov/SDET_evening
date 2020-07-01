@@ -15,7 +15,6 @@ public class _04_DragAndDropExecirse extends BaseDriver {
 
             WebElement norway = driver.findElement(By.id("box101"));
 
-
         Actions a1 = new Actions(driver);
 
         a1.dragAndDrop(oslo,norway).perform();

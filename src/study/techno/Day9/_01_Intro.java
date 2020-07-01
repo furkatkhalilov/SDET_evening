@@ -13,10 +13,17 @@ public class _01_Intro extends BaseDriver {
         /*
            Interview Question:
                 Which action you can do with actions class?
-                How to hover over(double click , right click) in selenium?
+                    I can use actions class for
+                    Hoverover , double click , right click , drag and drop , Click on Shift button
+                    in selenium
 
+                How to hover over in selenium?
+                    I am using moveToElement method for hover over in selenium.
 
-            Can you give me the syntax?
+                Can you give me the syntax?
+                    To use actions class I am creating the Actions object ,
+                        I am passing my driver name as parameter.
+                        I can do the actions then I am using the perform method.
 
          */
 
