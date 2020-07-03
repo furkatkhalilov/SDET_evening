@@ -25,7 +25,6 @@ public class _08_WaitExample extends BaseDriver {
         WebElement samsung = driver.findElement(By.linkText("Samsung galaxy s6"));
         samsung.click();
 
-
         WebElement addToCart = driver.findElement(By.partialLinkText("Add to"));
         addToCart.click();
 
