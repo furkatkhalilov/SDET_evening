@@ -35,7 +35,7 @@ public class _06_WaitsIntro extends BaseDriver {
 
          */
 
-        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
         driver.get("http://seleniumpractise.blogspot.com/2016/08/how-to-use-explicit-wait-in-selenium.html");
 
@@ -46,6 +46,7 @@ public class _06_WaitsIntro extends BaseDriver {
         WebElement webDriverText = driver.findElement(By.xpath("//p[text()='WebDriver']"));
 
         System.out.println(webDriverText.getText());
+
 
     }
 }

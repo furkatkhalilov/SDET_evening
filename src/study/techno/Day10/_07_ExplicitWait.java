@@ -1,4 +1,19 @@
 package study.techno.Day10;
 
-public class _07_ExplicitWait {
+import study.techno.Utils.BaseDriver;
+
+public class _07_ExplicitWait extends BaseDriver {
+
+    public static void main(String[] args) {
+
+        /*
+            Explicit wait:
+                   I can use it for TitleIs , titleContains
+                    alert
+                    WebElements
+
+
+         */
+
+    }
 }
