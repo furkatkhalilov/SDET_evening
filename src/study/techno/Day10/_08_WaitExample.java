@@ -41,4 +41,5 @@ public class _08_WaitExample extends BaseDriver {
             Partial Link text: Any element in the page has "a" tag and text is contains Add to cart
          */
     }
+
 }
