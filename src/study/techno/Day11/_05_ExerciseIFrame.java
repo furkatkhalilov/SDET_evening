@@ -42,12 +42,13 @@ public class _05_ExerciseIFrame extends BaseDriver {
         firstName.sendKeys("John");
 
 //        With this line Selenium is able to see all the page
-//         Otherwise Selenium will throw noSuchElementException in line 48
+//         Otherwise Selenium will throw noSuchElementException in line 52
 
 //        driver.switchTo().parentFrame(); If we have multiple frames in the one frame
 //                  Parent frame will navigate to parent of the child frame
-       driver.switchTo().defaultContent();
- 
+       driver.switchTo().defaultContent(); // Working as a parentFrame() but if this is the frame which in the orher
+//        frame then will navigate to whole page.
+
         WebElement ButtonContinue = driver.findElement(By.linkText("Continue with template"));
         ButtonContinue.click();
 
