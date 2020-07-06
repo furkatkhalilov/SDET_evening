@@ -24,6 +24,5 @@ public class _01_Intro extends BaseDriver {
 //                     (0,-2000)    left number is "0" scrolling from right to left
 //                     (0,-2000)    right number is "-2000" scrolling from top to bottom
         js.executeScript("window.scrollBy(0,-2000)");
-        
     }
 }
