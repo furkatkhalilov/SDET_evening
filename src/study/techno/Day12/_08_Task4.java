@@ -44,7 +44,7 @@ public class _08_Task4 extends BaseDriver {
 
         }
 
-        System.out.println(AllVideos.get(AllVideos.size()-1));
+        System.out.println(AllVideos.get(AllVideos.size()-1).getText());
 
     }
 
