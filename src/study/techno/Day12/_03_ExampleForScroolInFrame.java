@@ -17,8 +17,25 @@ public class _03_ExampleForScroolInFrame extends BaseDriver {
         e1.sendKeys("Ali");
 
         JavascriptExecutor js = (JavascriptExecutor)driver;
+//        Scroll down to bottom of the IFrame
+//          We are able to scroll down in the frame because we switched in it in line 14
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 
+//     Task: Switch to left frame search for asd and then scroll bottom of the page
+
+//        switching to whole page
+        driver.switchTo().parentFrame();
+
+//        Switching to left frame
+        driver.switchTo().frame("do-it-iframe");
+
+        WebElement searchInput = driver.findElement(By.cssSelector("input[placeholder='Search …']"));
+        searchInput.sendKeys("asd");
+
+        WebElement searchbutton = driver.findElement(By.xpath("//input[@value='Search']"));
+        searchbutton.click();
+
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 
     }
 }
