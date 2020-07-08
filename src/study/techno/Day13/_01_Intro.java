@@ -15,8 +15,11 @@ public class _01_Intro extends BaseDriver {
             Robot class helping me to handle the windows pop ups.
 
             Interview Question
-                How you are handling the windows pop ups?
+                1) How you are handling the windows pop ups?
                     I am using robot class to handle windows pop up in selenium.
+
+                2) How to upload a file with a selenium?
+                     I am using robot class to handle uploading in selenium.
          */
 
          driver.get("https://www.cleartrip.com/");
