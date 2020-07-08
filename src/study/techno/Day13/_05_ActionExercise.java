@@ -26,7 +26,21 @@ public class _05_ActionExercise extends BaseDriver {
 
          */
 
+//        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+
+        WebDriverWait wait = new WebDriverWait(driver,10);
+
         driver.get("https://www.yogaalliance.org/");
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Social Justice Resources")));
+
+//        WebElement  e1 =driver.findElement(By.linkText("Social Justice Resources"));
+//
+//        wait.until(ExpectedConditions.visibilityOf(e1));
+//
+//        By b1 = By.linkText("Social Justice Resources");
+//
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(b1));
 
         WebElement BecomeAMember = driver.findElement(By.linkText("Become a Member"));
 
@@ -37,7 +51,7 @@ public class _05_ActionExercise extends BaseDriver {
         WebElement teachers = driver.findElement(By.xpath("//li[@class='category child-3']/a[text()='Teachers']"));
         teachers.click();
 
-        WebDriverWait wait = new WebDriverWait(driver,10);
+
 //        wait.until(ExpectedConditions.invisibilityOf(teachers)); waiting until element invisible
         wait.until(ExpectedConditions.titleContains("Teachers | Yoga Alliance"));
 
