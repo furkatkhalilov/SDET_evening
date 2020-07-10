@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import study.techno.Utils.BaseDriver;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -17,13 +18,40 @@ public class _01_HW extends BaseDriver {
 
         WebDriverWait wait = new WebDriverWait(driver,5);
 
-        List<WebElement> shopNowList =wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("button[class='ui purple compact button']"),0));
+        ArrayList<Integer> AllRandomNumbers = new ArrayList<>();
 
-        System.out.println(shopNowList.size());
+        for(int i = 0 ; i<2 ;i++){
 
-        int randomNumber = randomGenerator(shopNowList.size());
+            List<WebElement> shopNowList =wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("button[class='ui purple compact button']"),0));
 
-        shopNowList.get(randomNumber).click();
+            System.out.println(shopNowList.size());
+
+            /*
+            Random number should be unique every execution.
+                Because website is not adding the same item second time.
+             */
+
+            int randomNumber = randomGenerator(shopNowList.size());
+
+            if(!AllRandomNumbers.contains(randomNumber)){
+                AllRandomNumbers.add(randomNumber);
+
+            }else{
+                randomNumber = randomGenerator(shopNowList.size());
+            }
+            shopNowList.get(randomNumber).click();
+
+            _02_HandleDropdown.handlingDropdowns();
+
+            driver.navigate().back();
+
+            driver.findElement(By.xpath("//button[@class='close-toastr']")).click();
+
+        }
+
+        WebElement cartIcon = driver.findElement(By.cssSelector("i[class='cart large icon shop-icon']"));
+        cartIcon.click();
+
 
 
     }
@@ -38,4 +66,12 @@ public class _01_HW extends BaseDriver {
 
         return rnd.nextInt(max);
     }
+
+
+    /*
+        ElementClickInterceptedException
+            Selenium is able to find an element
+            But there is pop op or something different front of the element.
+
+     */
 }
