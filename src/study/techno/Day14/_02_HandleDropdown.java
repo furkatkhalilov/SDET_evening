@@ -37,7 +37,6 @@ public class _02_HandleDropdown extends BaseDriver {
          */
         try{
             wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(dropdownByObject,0));
-
         }catch (TimeoutException e){
             System.out.println("There is no any dropdown dude");
         }

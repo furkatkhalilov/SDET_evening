@@ -8,32 +8,38 @@ public class _RandomMeth {
 
         ArrayList<Integer> AllRandomNumbers = new ArrayList<>();
 
-//        AllRandomNumbers.add(1);
-//        AllRandomNumbers.add(2);
-//        AllRandomNumbers.add(3);
-        AllRandomNumbers.add(4);
-//        AllRandomNumbers.add(5);
-//        AllRandomNumbers.add(6);
-//        AllRandomNumbers.add(7);
-//        AllRandomNumbers.add(8);
-//        AllRandomNumbers.add(9);
+//        To create a multiple random numbers we are using for loop just for testing
+        for(int i = 0 ; i<5 ; i++){
 
-        int randomNumber = randomGenerator(12);
+            int randomNumber = randomGenerator(5);
 
-        System.out.println("random number in the first print "+randomNumber);
+            System.out.println("random number in the first print "+randomNumber);
 
-        if(!AllRandomNumbers.contains(randomNumber)){
-            AllRandomNumbers.add(randomNumber);
+            boolean isRandomDuplicate = true;
 
-        }else{
-//            in the else java might create the same number
-            randomNumber = randomGenerator(12);
+//            While isRandomDuplicate is true run this code this will help us to generate unique random number
+            while(isRandomDuplicate){
+
+                System.out.println("random number before the if " + randomNumber);
+
+//                If random number is not in the arraylist then add random number in the list and make the isRandomDuplicate false
+                if(!AllRandomNumbers.contains(randomNumber)){
+                    AllRandomNumbers.add(randomNumber);
+                    isRandomDuplicate=false;
+
+//                    create the random number again if the random number in the list
+                }else{
+
+//                    In the else java might create the same number
+                    randomNumber = randomGenerator(5);
+                }
+                System.out.println("random number after the if " + randomNumber);
+            }
+
+            System.out.println("random number in the last  print "+randomNumber);
+
+            System.out.println(AllRandomNumbers);
         }
-        System.out.println("random number in the second  print "+randomNumber);
-
-
-        System.out.println(AllRandomNumbers);
-
     }
 
     public static int randomGenerator(int max){
